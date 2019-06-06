@@ -1,0 +1,3 @@
+spring.jpa.hibernate.ddl-auto=create-drop
+com isso ele cria automaticamente as tabelas
+e nao lê o arquiv schema.
