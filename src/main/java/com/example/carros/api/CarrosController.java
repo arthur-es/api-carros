@@ -46,13 +46,9 @@ public class CarrosController {
 
     @PostMapping
     public ResponseEntity post(@RequestBody Carro carro){
-        try {
             CarroDTO c = carroService.insert(carro);
             URI location = getURI(c.getId());
             return ResponseEntity.created(location).build();
-        } catch (Exception ex){
-            return ResponseEntity.badRequest().build();
-        }
     }
     private URI getURI(Long id){
         return ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
@@ -72,10 +68,8 @@ public class CarrosController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable("id") Long id){
-        boolean ok = carroService.delete(id);
-        return ok ?
-                ResponseEntity.ok().build() :
-                ResponseEntity.notFound().build();
+        carroService.delete(id);
+        return ResponseEntity.ok().build();
     }
 
 }
