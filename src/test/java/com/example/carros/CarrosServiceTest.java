@@ -51,7 +51,7 @@ public class CarrosServiceTest {
 	@Test
 	public void getListaCarros(){
 		List<CarroDTO> listaCarros = carroService.getCarros();
-		assertEquals(31, listaCarros.size());
+		assertEquals(62, listaCarros.size());
 	}
 
 	@Test
@@ -81,13 +81,13 @@ public class CarrosServiceTest {
 
 		//verificacao
 		assertTrue(listaCarrosEsportivos.size() != 0);
-		assertEquals(10 , listaCarrosEsportivos.size() );
+		assertEquals(20 , listaCarrosEsportivos.size() );
 
 		assertTrue(listaCarrosLuxuosos.size() != 0);
-		assertEquals(11, listaCarrosLuxuosos.size());
+		assertEquals(22, listaCarrosLuxuosos.size());
 
 		assertTrue(listaCarrosClassicos.size() != 0);
-		assertEquals(10, listaCarrosClassicos.size());
+		assertEquals(20, listaCarrosClassicos.size());
 
 		assertEquals(0, carroService.getCarroByTipo("barato").size()); // tipo que nao existe
 	}
